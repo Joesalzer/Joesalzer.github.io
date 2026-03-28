@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Research — Joseph Salzer</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1, maximum-scale=3">
+
+<style>
+  :root {
+    --bg: #f5e6d8;
+    --text: #111;
+    --link: #8b2500;
+    --muted: #555;
+    --border: #ccc;
+    --max-width: 680px;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background-color: var(--bg);
+    color: var(--text);
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 15px;
+    line-height: 1.65;
+    padding: 2rem 1.5rem 4rem;
+  }
+
+  .main {
+    max-width: var(--max-width);
+    margin: 0 auto;
+  }
+
+  /* ── NAV ── */
+  nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .site-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 1.25rem;
+    list-style: none;
+    flex-wrap: wrap;
+  }
+
+  .nav-links a {
+    color: var(--link);
+    text-decoration: none;
+    font-size: 0.88rem;
+  }
+
+  .nav-links a:hover { text-decoration: underline; }
+
+  /* ── CONTENT ── */
+  h2 {
+    font-size: 1.15rem;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 0.2rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .under-construction {
+    margin-top: 2.5rem;
+    color: var(--muted);
+    font-style: italic;
+    font-size: 0.95rem;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    margin-top: 2rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid var(--border);
+    font-size: 0.8rem;
+    color: var(--muted);
+    font-family: sans-serif;
+  }
+</style>
+</head>
+
+<body>
+<div class="main">
+
+  <!-- NAV -->
+  <nav>
+    <span class="site-title">Joseph Salzer</span>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="research.html">Research</a></li>
+    </ul>
+  </nav>
+
+  <!-- CONTENT -->
+  <h2>Research</h2>
+  <p class="under-construction">Under construction.</p>
+
+  <!-- FOOTER -->
+  <footer>
+    &copy; <span id="year"></span> Joseph Salzer. Last updated: March 28, 2026.
+  </footer>
+
+</div>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>

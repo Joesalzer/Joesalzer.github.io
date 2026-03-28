@@ -1,582 +1,255 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>[Your Name] — Statistician</title>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+<meta charset="UTF-8">
+<title>Joseph Salzer</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1, maximum-scale=3">
 
-    :root {
-      --black: #0a0a0a;
-      --white: #f5f3ee;
-      --accent: #c84b2f;
-      --accent2: #e8793a;
-      --gray: #6b6b6b;
-      --light-gray: #e2dfd8;
-      --card-bg: #ffffff;
+<!-- MathJax -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS_HTML"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+        displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+        processEscapes: true,
+        processEnvironments: true
+    },
+    displayAlign: 'center',
+    "HTML-CSS": {
+        styles: {'.MathJax_Display': {"margin": 0}},
+        linebreaks: { automatic: true }
     }
+});
+</script>
 
-    html { scroll-behavior: smooth; }
+<style>
+  /* ══════════════════════════════════════════
+     BACKGROUND COLOR
+     Change this hex value to adjust the page background.
+     Current: warm peach/terracotta (#f5e6d8)
+     Try: #fde8dc (lighter), #e8c4b0 (deeper), #ffffff (plain white)
+  ══════════════════════════════════════════ */
+  :root {
+    --bg: #f5e6d8;
+    --text: #111;
+    --link: #8b2500;
+    --muted: #555;
+    --border: #ccc;
+    --max-width: 680px;
+  }
 
-    body {
-      background: var(--white);
-      color: var(--black);
-      font-family: 'DM Sans', sans-serif;
-      font-weight: 300;
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    /* ── NAV ── */
-    nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 100;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 1.2rem 4rem;
-      background: var(--white);
-      border-bottom: 1px solid var(--light-gray);
-    }
+  body {
+    background-color: var(--bg);
+    color: var(--text);
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 15px;
+    line-height: 1.65;
+    padding: 2rem 1.5rem 4rem;
+  }
 
-    .nav-name {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 1.4rem;
-      letter-spacing: 0.08em;
-      color: var(--black);
-      text-decoration: none;
-    }
+  .main {
+    max-width: var(--max-width);
+    margin: 0 auto;
+  }
 
-    .nav-links {
-      display: flex;
-      gap: 2.5rem;
-      list-style: none;
-    }
+  /* ── NAV ── */
+  nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--border);
+  }
 
-    .nav-links a {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.75rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      text-decoration: none;
-      color: var(--gray);
-      transition: color 0.2s;
-    }
+  .site-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+  }
 
-    .nav-links a:hover { color: var(--accent); }
+  .nav-links {
+    display: flex;
+    gap: 1.25rem;
+    list-style: none;
+    flex-wrap: wrap;
+  }
 
-    /* ── HERO ── */
-    .hero {
-      min-height: 100vh;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      padding-top: 70px;
-    }
+  .nav-links a {
+    color: var(--link);
+    text-decoration: none;
+    font-size: 0.88rem;
+  }
 
-    .hero-text {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: 6rem 4rem 6rem 4rem;
-    }
+  .nav-links a:hover { text-decoration: underline; }
 
-    .hero-eyebrow {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.75rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 1.5rem;
-    }
+  /* ── HEADER / PROFILE ── */
+  .profile {
+    display: flex;
+    gap: 2rem;
+    align-items: flex-start;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+  }
 
-    .hero-name {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: clamp(4rem, 7vw, 7.5rem);
-      line-height: 0.92;
-      letter-spacing: 0.02em;
-      color: var(--black);
-      margin-bottom: 1.5rem;
-    }
+  .photo {
+    width: 150px;
+    height: 190px;
+    object-fit: cover;
+    flex-shrink: 0;
+    border: 1px solid var(--border);
+  }
 
-    .hero-name span {
-      display: block;
-      color: var(--accent);
-    }
+  .photo-placeholder {
+    width: 150px;
+    height: 190px;
+    flex-shrink: 0;
+    background: #ddd;
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #888;
+    font-size: 0.75rem;
+    text-align: center;
+    padding: 0.5rem;
+    font-family: sans-serif;
+  }
 
-    .hero-title {
-      font-size: 1rem;
-      font-weight: 400;
-      color: var(--gray);
-      margin-bottom: 0.4rem;
-    }
+  .info h1 {
+    font-size: 1.5rem;
+    margin-bottom: 0.4rem;
+  }
 
-    .hero-institution {
-      font-size: 0.95rem;
-      font-weight: 500;
-      color: var(--black);
-      margin-bottom: 2.5rem;
-    }
+  .info p {
+    margin-bottom: 0.2rem;
+    font-size: 0.92rem;
+    color: var(--muted);
+  }
 
-    .hero-actions {
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
+  .info a { color: var(--link); }
 
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 0.85rem 1.8rem;
-      font-family: 'DM Mono', monospace;
-      font-size: 0.75rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      text-decoration: none;
-      border: none;
-      cursor: pointer;
-      transition: all 0.2s;
-    }
+  .info-table {
+    margin-top: 0.6rem;
+    border-collapse: collapse;
+    font-size: 0.88rem;
+  }
 
-    .btn-primary {
-      background: var(--accent);
-      color: #fff;
-    }
+  .info-table td {
+    padding: 0.1rem 0.5rem 0.1rem 0;
+    vertical-align: top;
+    color: var(--muted);
+  }
 
-    .btn-primary:hover {
-      background: var(--black);
-    }
+  .info-table td:first-child {
+    white-space: nowrap;
+    font-weight: bold;
+    color: var(--text);
+  }
 
-    .btn-outline {
-      background: transparent;
-      color: var(--black);
-      border: 1.5px solid var(--black);
-    }
+  .inline-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 0.75rem;
+    flex-wrap: wrap;
+    list-style: none;
+    font-size: 0.88rem;
+  }
 
-    .btn-outline:hover {
-      background: var(--black);
-      color: var(--white);
-    }
+  .inline-links a {
+    color: var(--link);
+    text-decoration: none;
+  }
 
-    .hero-image {
-      position: relative;
-      overflow: hidden;
-      background: var(--light-gray);
-    }
+  .inline-links a:hover { text-decoration: underline; }
 
-    .hero-image::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(135deg, var(--accent) 0%, var(--accent2) 100%);
-      opacity: 0.12;
-      z-index: 1;
-    }
+  /* ── INTRO ── */
+  .intro p {
+    margin-bottom: 0.85rem;
+    font-size: 0.95rem;
+  }
 
-    .hero-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
+  /* ── FOOTER ── */
+  footer {
+    margin-top: 2rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid var(--border);
+    font-size: 0.8rem;
+    color: var(--muted);
+    font-family: sans-serif;
+  }
 
-    .photo-placeholder {
-      width: 100%;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 1rem;
-      color: var(--gray);
-    }
-
-    .photo-placeholder svg {
-      opacity: 0.3;
-    }
-
-    .photo-placeholder p {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.75rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      opacity: 0.5;
-    }
-
-    /* ── SECTION COMMON ── */
-    section {
-      padding: 7rem 4rem;
-    }
-
-    .section-label {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.7rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 1rem;
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-    }
-
-    .section-label::after {
-      content: '';
-      display: block;
-      height: 1px;
-      width: 40px;
-      background: var(--accent);
-    }
-
-    .section-title {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: clamp(2.8rem, 5vw, 4.5rem);
-      line-height: 1;
-      letter-spacing: 0.02em;
-      margin-bottom: 3rem;
-    }
-
-    /* ── ABOUT ── */
-    #about {
-      background: var(--black);
-      color: var(--white);
-    }
-
-    #about .section-label { color: var(--accent2); }
-    #about .section-label::after { background: var(--accent2); }
-    #about .section-title { color: var(--white); }
-
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1.2fr 1fr;
-      gap: 6rem;
-      align-items: start;
-    }
-
-    .about-text p {
-      font-size: 1.05rem;
-      line-height: 1.8;
-      color: #c8c4bc;
-      margin-bottom: 1.5rem;
-    }
-
-    .about-text p:last-child { margin-bottom: 0; }
-
-    .about-stats {
-      display: flex;
-      flex-direction: column;
-      gap: 2rem;
-      border-left: 1px solid #2a2a2a;
-      padding-left: 3rem;
-    }
-
-    .stat-item {}
-
-    .stat-number {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 3rem;
-      color: var(--accent2);
-      line-height: 1;
-    }
-
-    .stat-label {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.72rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: #666;
-      margin-top: 0.3rem;
-    }
-
-    /* ── RESEARCH ── */
-    #research {
-      background: var(--white);
-    }
-
-    .research-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-      gap: 1.5px;
-      background: var(--light-gray);
-      border: 1.5px solid var(--light-gray);
-    }
-
-    .research-card {
-      background: var(--white);
-      padding: 2.5rem;
-      transition: background 0.2s;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .research-card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0;
-      width: 3px;
-      height: 0;
-      background: var(--accent);
-      transition: height 0.3s;
-    }
-
-    .research-card:hover::before { height: 100%; }
-    .research-card:hover { background: #faf9f6; }
-
-    .card-tag {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.68rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 1rem;
-    }
-
-    .card-title {
-      font-family: 'DM Sans', sans-serif;
-      font-weight: 700;
-      font-size: 1.05rem;
-      margin-bottom: 0.75rem;
-      line-height: 1.35;
-    }
-
-    .card-desc {
-      font-size: 0.9rem;
-      color: var(--gray);
-      line-height: 1.7;
-    }
-
-    /* ── CV ── */
-    #cv {
-      background: var(--accent);
-      color: #fff;
-      text-align: center;
-      padding: 6rem 4rem;
-    }
-
-    #cv .section-label { color: rgba(255,255,255,0.6); }
-    #cv .section-label::after { background: rgba(255,255,255,0.6); }
-    #cv .section-label { justify-content: center; }
-    #cv .section-title { color: #fff; margin-bottom: 1.5rem; }
-
-    #cv p {
-      font-size: 1rem;
-      color: rgba(255,255,255,0.75);
-      margin-bottom: 2.5rem;
-      max-width: 480px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .btn-white {
-      background: #fff;
-      color: var(--accent);
-    }
-
-    .btn-white:hover {
-      background: var(--black);
-      color: #fff;
-    }
-
-    /* ── FOOTER ── */
-    footer {
-      background: var(--black);
-      color: #444;
-      padding: 2rem 4rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-family: 'DM Mono', monospace;
-      font-size: 0.72rem;
-      letter-spacing: 0.1em;
-    }
-
-    footer a { color: #555; text-decoration: none; transition: color 0.2s; }
-    footer a:hover { color: var(--accent2); }
-
-    /* ── ANIMATIONS ── */
-    .fade-up {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.7s ease, transform 0.7s ease;
-    }
-    .fade-up.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* ── RESPONSIVE ── */
-    @media (max-width: 900px) {
-      nav { padding: 1rem 1.5rem; }
-      .nav-links { gap: 1.5rem; }
-
-      .hero { grid-template-columns: 1fr; min-height: auto; }
-      .hero-text { padding: 5rem 1.5rem 3rem; }
-      .hero-image { height: 55vw; min-height: 280px; }
-
-      section { padding: 5rem 1.5rem; }
-      .about-grid { grid-template-columns: 1fr; gap: 3rem; }
-      .about-stats { border-left: none; border-top: 1px solid #2a2a2a; padding-left: 0; padding-top: 2rem; flex-direction: row; flex-wrap: wrap; gap: 2rem; }
-
-      footer { flex-direction: column; gap: 0.5rem; text-align: center; padding: 1.5rem; }
-    }
-  </style>
+  /* ── RESPONSIVE ── */
+  @media (max-width: 520px) {
+    .profile { flex-direction: column; }
+    .photo, .photo-placeholder { width: 120px; height: 150px; }
+  }
+</style>
 </head>
+
 <body>
+<div class="main">
 
   <!-- NAV -->
-  <nav>
-    <a class="nav-name" href="#">[Your Name]</a>
+  <nav id="top">
+    <span class="site-title">Joseph Salzer</span>
     <ul class="nav-links">
-      <li><a href="#about">About</a></li>
-      <li><a href="#research">Research</a></li>
-      <li><a href="#cv">CV</a></li>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="research.html">Research</a></li>
     </ul>
   </nav>
 
-  <!-- HERO -->
-  <section class="hero" id="home">
-    <div class="hero-text">
-      <p class="hero-eyebrow">Statistician</p>
-      <h1 class="hero-name">
-        [First<br/>Name]
-        <span>[Last Name]</span>
-      </h1>
-      <p class="hero-title">[Your Title, e.g. Assistant Professor]</p>
-      <p class="hero-institution">[Your Department] · [Your University]</p>
-      <div class="hero-actions">
-        <a href="#cv" class="btn btn-primary">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-          Download CV
-        </a>
-        <a href="#about" class="btn btn-outline">About Me</a>
-      </div>
+  <!-- PROFILE -->
+  <div class="profile">
+    <img class="photo" src="photo.jpg" alt="Joseph Salzer">
+
+    <div class="info">
+      <h1>Joseph Salzer</h1>
+      <p>PhD Student</p>
+      <p><a href="https://stat.wisc.edu/" target="_blank" rel="noopener">Department of Statistics</a></p>
+      <p><a href="https://www.wisc.edu/" target="_blank" rel="noopener">University of Wisconsin-Madison</a></p>
+
+      <table class="info-table">
+        <tr>
+          <td>E-mail:</td>
+          <td>jsalzer AT wisc DOT edu</td>
+        </tr>
+      </table>
+
+      <ul class="inline-links">
+        <li><a href="https://orcid.org/0009-0009-4165-9606" target="_blank" rel="noopener">ORCID</a></li>
+        <li><a href="https://github.com/Joesalzer" target="_blank" rel="noopener">GitHub</a></li>
+        <li><a href="cv.pdf" download>CV</a></li>
+      </ul>
     </div>
-    <div class="hero-image">
-      <!--
-        TO ADD YOUR PHOTO:
-        Replace the <div class="photo-placeholder">...</div> block below with:
-        <img src="photo.jpg" alt="[Your Name]" />
-        Make sure photo.jpg is in the same folder as this file.
-      -->
-      <div class="photo-placeholder">
-        <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="1">
-          <circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
-        </svg>
-        <p>Add your photo here</p>
-      </div>
-    </div>
-  </section>
+  </div>
 
-  <!-- ABOUT -->
-  <section id="about">
-    <div class="section-label">About</div>
-    <h2 class="section-title">About Me</h2>
-    <div class="about-grid">
-      <div class="about-text fade-up">
-        <!--
-          Replace the paragraphs below with your own bio.
-        -->
-        <p>
-          [Write your bio here. This is a great place to introduce yourself — your background,
-          your academic journey, and what drives your work as a statistician.]
-        </p>
-        <p>
-          [Add a second paragraph if needed. You might describe your methodological interests,
-          the types of problems you care about, or collaborations you are involved in.]
-        </p>
-        <p>
-          [Optionally add a third paragraph about your broader interests, teaching philosophy,
-          or anything else you'd like visitors to know.]
-        </p>
-      </div>
-      <div class="about-stats fade-up">
-        <!-- Edit the numbers and labels below to reflect your own credentials -->
-        <div class="stat-item">
-          <div class="stat-number">[X]+</div>
-          <div class="stat-label">Years of Research</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-number">[X]+</div>
-          <div class="stat-label">Publications</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-number">[X]+</div>
-          <div class="stat-label">Collaborators</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- RESEARCH -->
-  <section id="research">
-    <div class="section-label">Work</div>
-    <h2 class="section-title">Research &amp; Projects</h2>
-    <div class="research-grid">
-
-      <!-- CARD 1 — duplicate and edit these blocks to add more projects -->
-      <div class="research-card fade-up">
-        <div class="card-tag">[Area, e.g. Bayesian Methods]</div>
-        <h3 class="card-title">[Project or Paper Title]</h3>
-        <p class="card-desc">[Brief description of the project, its goals, methods, and significance. 2–3 sentences is ideal.]</p>
-      </div>
-
-      <!-- CARD 2 -->
-      <div class="research-card fade-up">
-        <div class="card-tag">[Area, e.g. Causal Inference]</div>
-        <h3 class="card-title">[Project or Paper Title]</h3>
-        <p class="card-desc">[Brief description of the project, its goals, methods, and significance. 2–3 sentences is ideal.]</p>
-      </div>
-
-      <!-- CARD 3 -->
-      <div class="research-card fade-up">
-        <div class="card-tag">[Area, e.g. Machine Learning]</div>
-        <h3 class="card-title">[Project or Paper Title]</h3>
-        <p class="card-desc">[Brief description of the project, its goals, methods, and significance. 2–3 sentences is ideal.]</p>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- CV DOWNLOAD -->
-  <section id="cv">
-    <div class="section-label">Curriculum Vitae</div>
-    <h2 class="section-title">Download My CV</h2>
-    <p>A full overview of my academic background, publications, teaching, and service.</p>
-    <!--
-      TO LINK YOUR CV:
-      1. Place your CV file (e.g. cv.pdf) in the same folder as this index.html.
-      2. Change href="cv.pdf" below to match your filename.
-    -->
-    <a href="cv.pdf" download class="btn btn-white">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-      Download CV (PDF)
-    </a>
-  </section>
+  <!-- INTRO -->
+  <div class="intro">
+    <p>
+      <b>About:</b>
+      I am a fifth-year Statistics PhD student at the University of Wisconsin-Madison working with <a href="https://www.jjckehe.com/home" target="_blank" rel="noopener">Jessi Cisewski Kehe</a>.
+    </p>
+    <p>
+      <b>Research interests:</b>
+      astrostatistics, functional data analysis, detection and characterization of exoplanets with extreme precision radial velocity spectra
+    </p>
+  </div>
 
   <!-- FOOTER -->
   <footer>
-    <span>© <span id="year"></span> [Your Name]</span>
-    <span>[your.email@university.edu]</span>
+    &copy; <span id="year"></span> Joseph Salzer. Last updated: March 28, 2026.
   </footer>
 
-  <script>
-    // Auto year in footer
-    document.getElementById('year').textContent = new Date().getFullYear();
+</div>
 
-    // Scroll fade-in
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry, i) => {
-        if (entry.isIntersecting) {
-          setTimeout(() => entry.target.classList.add('visible'), i * 120);
-        }
-      });
-    }, { threshold: 0.12 });
-
-    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
-  </script>
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
 
 </body>
 </html>
